@@ -1,17 +1,27 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Card from "../components/card";
+
 const Home = () => {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    const fetchedItems = async () => {
+      const res = await axios.get("http://localhost:8989/events/");
+      console.log(res.data);
+      setItems(res.data);
+    };
+    fetchedItems();
+  }, []);
   return (
-    <div className="grid grid-col-3 grid-flow-col gap-4">
-      <section className="col-auto">
-        <h3 className="bg-yellow-300">Left Sidebar Content</h3>
-      </section>
-      <section className="col-auto">
+    <div className="">
+      {items.map((item) => (
         <Card
-          title="Palace Grounds"
-          description="This event is held in palace grounds for no good reason. This is nothing in here yet it feels like something is always here. But to be frank its better to leave it full than empty"
+          key={item.id}
+          title={item.name}
+          description={item.description}
+          itemid={item.id}
         />
-      </section>
-      <section className="col-auto bg-green-300">Right Sidebar Content</section>
+      ))}
     </div>
   );
 };
