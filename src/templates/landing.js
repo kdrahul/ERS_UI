@@ -7,8 +7,8 @@ const types = ["Login", "Signup"];
 const Landing = () => {
   const [active, setActive] = useState(types[0]);
   return (
-    <div className="">
-      <button className="flex text-xl px-2 py-4">
+    <div className="container">
+      <div className="btn-group">
         {types.map((type) => (
           <div
             key={type}
@@ -16,10 +16,10 @@ const Landing = () => {
             onClick={() => setActive(type)}
             className="p-2"
           >
-            {type}
+            <button className="btn">{type}</button>
           </div>
         ))}
-      </button>
+      </div>
       <p />
       <p>{active === "Login" ? <Login /> : <Signup />}</p>
     </div>

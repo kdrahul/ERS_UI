@@ -1,30 +1,43 @@
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
-    <div className="flex justify-between px-4 py-1">
-      <div>
-        <ul>
-          <li>
-            <Link to="/" className="text-xl text-purple-700">
-              Event Registration and Survey
+    <nav className="navbar navbar-expand-lg navbar-light ">
+      <div className="navbar-brand">
+        <Link to="/" className="nav-link">
+          Event Registration and Survey
+        </Link>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item ">
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item ">
+            <Link className="nav-link" to="/survey">
+              Survey
+            </Link>
+          </li>
+          <li className="nav-item ">
+            <Link className="nav-link" to="/admin">
+              Admin
             </Link>
           </li>
         </ul>
       </div>
-      <div className="">
-        <ul className="flex justify-evenly">
-          <li className="mx-2 text-lg">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="mx-2 text-lg">
-            <a href="#brand">About</a>
-          </li>
-          <li className="mx-2 text-lg">
-            <a href="#brand">Surveys</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    </nav>
   );
 };
 
