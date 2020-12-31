@@ -3,3 +3,4 @@
 `npm install` - on first clone
 
 #### This is only a college project
+#### Not optimised for production
