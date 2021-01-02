@@ -12,32 +12,37 @@ const Signup = () => {
     fetchUsers();
   }, []);
   return (
-    <div className="flex justify-center place-self-center align-middle m-auto">
-      <form className="flex flex-col w-1/3 shadow-lg px-16 py-8 ">
-        <span className="text-center text-2xl text-green-400">Signup</span>
+    <form class="card card-body">
+      <div className="form-group">
+        <label for="username">Username</label>
+        <input id="username" className="form-control" placeholder="Username" />
+      </div>
+      <div className="form-group">
+        <label for="pass">Password</label>
+        <input id="pass" type="password" className="form-control" value="" />
+      </div>
+      <div className="form-group">
+        <label for="cfpass">Confirm Password</label>
+        <input id="cfpass" className="form-control" type="password" />
+      </div>
+      <div className="form-group">
+        <label for="email">Email ID</label>
         <input
-          className="border-solid border-green-300 border-opacity-100 rounded-lg border-2 p-2 mt-4"
-          type="text"
-          placeholder="Username"
+          id="phone"
+          className="form-control"
+          placeholder="Email"
+          type="email"
         />
-        <input
-          className="border-solid border-green-300 border-opacity-100 rounded-lg border-2 p-2 mt-4"
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          className="border-solid border-green-300 border-opacity-100 rounded-lg border-2 p-2 mt-4"
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <button
-          type="submit"
-          className="text-xl border-green-400 border-opacity-100 rounded-lg border-2 bg-green-400 text-white my-4"
-        >
-          Sign Up
-        </button>
-      </form>
-    </div>
+      </div>
+      <div className="form-group">
+        <label for="phone">Phone Number</label>
+        <input id="phone" className="form-control" placeholder="Phone Number" />
+      </div>
+
+      <button className="btn btn-success" type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 

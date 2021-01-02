@@ -4,7 +4,7 @@ import Signup from "../components/signup";
 
 const types = ["Login", "Signup"];
 
-const Landing = () => {
+const LoginSignup = () => {
   const [active, setActive] = useState(types[0]);
   return (
     <div className="container">
@@ -26,4 +26,4 @@ const Landing = () => {
   );
 };
 // Usage
-export default Landing;
+export default LoginSignup;

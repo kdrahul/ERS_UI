@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const EventDetails = ({ match }) => {
@@ -12,34 +13,37 @@ const EventDetails = ({ match }) => {
     };
     fetchedItems();
   }, [match]);
+
+  let today = Date.now();
+  let set_date = new Date(items.starts_at);
+  console.log(Date(today));
   return (
-    <div>
-      <div className="dCard">
-        <ul>
-          <li>
-            <span>{items.name}</span>
-          </li>
-          <li>
-            <span>{items.description}</span>
-          </li>
-          <li>
-            <span>{items.max_limit}</span>
-          </li>
-          <li>
-            <span>{items.max_limit}</span>
-          </li>
-        </ul>
+    <div className="container card">
+      {/* Content */}
+      <div className="card-body">
+        <h4 className="card-title">{items.name}</h4>
+        <p>{items.description}</p>
+        <p>Max Participants: {items.max_limit}</p>
+        <p> Entry Fee: {items.fee ? items.fee : "Free!"} </p>
+        <small className="text-muted">
+          {set_date.getHours() +
+            ":" +
+            set_date.getMinutes() +
+            " " +
+            set_date.getDate() +
+            "/" +
+            set_date.getMonth() +
+            "/" +
+            set_date.getFullYear()}
+        </small>
       </div>
-      <div id="detail-card">
-        <h1>Name:{items.name}</h1>
-        <h1>Desciption: {items.description}</h1>
-        <h1>Created on:{items.starts_at}</h1>
-        <h1>Registration Limit: {items.max_limit}</h1>
-        <h1>Entre Fee:{items.fee ? items.fee : "Free"}</h1>
-      </div>
-      <div id="card-buttons">
-        <a href="#register"> Register Now!</a>
-        <a href="#Contact">Contact Organizers</a>
+      <div className="card-body">
+        <Link
+          to="/events/{items.id}/fill-form"
+          className="btn btn-outline-success"
+        >
+          Register
+        </Link>
       </div>
     </div>
   );

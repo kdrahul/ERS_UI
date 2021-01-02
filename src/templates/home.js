@@ -13,13 +13,14 @@ const Home = () => {
     fetchedItems();
   }, []);
   return (
-    <div className="">
+    <div className="container">
       {items.map((item) => (
         <Card
           key={item.id}
           title={item.name}
           description={item.description}
           itemid={item.id}
+          className="mb-5"
         />
       ))}
     </div>
