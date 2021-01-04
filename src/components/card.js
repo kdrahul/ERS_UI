@@ -5,6 +5,7 @@ const Card = (props) => {
       <div className="card-body">
         <h3 className="card-title">{props.title}</h3>
         <p className="card-subtitle text-muted">{props.description}</p>
+        <small className="text-muted">{props.time}</small>
       </div>
 
       {/*Bottom bar */}
@@ -21,9 +22,6 @@ const Card = (props) => {
         >
           Show Details
         </Link>
-        <div className="card-text">
-          <small className="text-muted">2 days to go </small>
-        </div>
       </div>
     </div>
   );

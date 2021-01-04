@@ -20,6 +20,7 @@ const Home = () => {
           title={item.name}
           description={item.description}
           itemid={item.id}
+          time={new Date(item.starts_at).toDateString()}
           className="mb-5"
         />
       ))}

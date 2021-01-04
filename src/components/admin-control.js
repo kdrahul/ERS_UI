@@ -34,7 +34,7 @@ const Landing = () => {
               aria-controls="#events"
               aria-selected="false"
             >
-              Profile
+              Events
             </a>
             <a
               class="nav-link"
@@ -45,7 +45,7 @@ const Landing = () => {
               aria-controls="surveys"
               aria-selected="false"
             >
-              Messages
+              Survey Responses
             </a>
           </div>
         </div>
