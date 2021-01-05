@@ -1,31 +1,33 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-const onSubmit = async (data) => {
-  console.log(data);
-  await fetch("http://localhost:8989/events/", {
-    method: "post",
-    headers: {
-      Accept: "application/json, */*",
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then((res) => res.json())
-    .then((res) => console.log(res))
-    .catch((res) => console.log(res));
-};
 const Events = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:8989/events/");
-
       setItems(result.data);
     };
     fetchData();
-  }, [items]);
-  const { register, handleSubmit, errors } = useForm();
+  }, []);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = async (data) => {
+    console.log(data);
+    await fetch("http://localhost:8989/events/", {
+      method: "post",
+      headers: {
+        Accept: "application/json, */*",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        const result = [...items, res];
+        setItems(result);
+      })
+      .catch((res) => console.log(res));
+  };
 
   return (
     <div>
@@ -154,7 +156,7 @@ const Events = () => {
         </thead>
         <tbody>
           {items.map((eventDetails) => (
-            <tr>
+            <tr key={eventDetails.id}>
               <th scope="row">{eventDetails.id}</th>
               <td>{eventDetails.name}</td>
               <td>{eventDetails.description}</td>
