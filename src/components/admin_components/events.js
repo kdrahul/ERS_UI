@@ -10,7 +10,7 @@ const Events = () => {
     };
     fetchData();
   }, []);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
     await fetch("http://localhost:8989/events/", {
@@ -27,6 +27,25 @@ const Events = () => {
         setItems(result);
       })
       .catch((res) => console.log(res));
+    reset({});
+  };
+
+  const deleteEvent = async (eventId) => {
+    console.log(eventId);
+
+    const result = await axios
+      .delete(`http://localhost:8989/events/${eventId}`)
+      .then((res) => {
+        if (res.status === 200) {
+          const newItems = items.filter((oldItem) => oldItem.id !== eventId);
+          setItems(newItems);
+        } else {
+          console.log(res.status);
+        }
+      })
+
+      .catch((res) => console.log(res));
+    console.log(result);
   };
 
   return (
@@ -152,6 +171,8 @@ const Events = () => {
             <th scope="col">Max. Participants</th>
             <th scope="col">Entry Fee</th>
             <th scope="col">Prize Money</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -165,6 +186,19 @@ const Events = () => {
               <td>{eventDetails.max_limit}</td>
               <td>{eventDetails.fee}</td>
               <td>{eventDetails.prize_money}</td>
+              <td>
+                <button className="btn btn-outline-primary">Edit</button>
+              </td>
+              <td>
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={() => {
+                    deleteEvent(eventDetails.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
