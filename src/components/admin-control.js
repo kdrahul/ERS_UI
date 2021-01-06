@@ -6,16 +6,16 @@ import Events from "../components/admin_components/events";
 const Landing = () => {
   return (
     <div>
-      <div class="row">
-        <div class="col-2">
+      <div className="row">
+        <div className="col-2">
           <div
-            class="nav flex-column nav-pills"
+            className="nav flex-column nav-pills"
             id="v-pills-tab"
             role="tablist"
             aria-orientation="vertical"
           >
             <a
-              class="nav-link active"
+              className="nav-link active"
               id="users-tab"
               data-toggle="pill"
               href="#users"
@@ -26,7 +26,7 @@ const Landing = () => {
               Users
             </a>
             <a
-              class="nav-link"
+              className="nav-link"
               id="events-tab"
               data-toggle="pill"
               href="#events"
@@ -37,7 +37,7 @@ const Landing = () => {
               Events
             </a>
             <a
-              class="nav-link"
+              className="nav-link"
               id="surveys-tab"
               data-toggle="pill"
               href="#surveys"
@@ -49,10 +49,10 @@ const Landing = () => {
             </a>
           </div>
         </div>
-        <div class="col-10">
-          <div class="tab-content" id="v-pills-tabContent">
+        <div className="col-10">
+          <div className="tab-content" id="v-pills-tabContent">
             <div
-              class="tab-pane fade show active"
+              className="tab-pane fade show active"
               id="users"
               role="tabpanel"
               aria-labelledby="users-tab"
@@ -60,7 +60,7 @@ const Landing = () => {
               <Users />
             </div>
             <div
-              class="tab-pane fade"
+              className="tab-pane fade"
               id="events"
               role="tabpanel"
               aria-labelledby="events-tab"
@@ -68,7 +68,7 @@ const Landing = () => {
               <Events />
             </div>
             <div
-              class="tab-pane fade"
+              className="tab-pane fade"
               id="surveys"
               role="tabpanel"
               aria-labelledby="surveys-tab"
