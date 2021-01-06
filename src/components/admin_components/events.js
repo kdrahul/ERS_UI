@@ -2,7 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 const Events = () => {
+  const { register, handleSubmit, reset } = useForm();
   const [items, setItems] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:8989/events/");
@@ -10,7 +12,7 @@ const Events = () => {
     };
     fetchData();
   }, []);
-  const { register, handleSubmit, reset } = useForm();
+
   const onSubmit = async (data) => {
     console.log(data);
     await fetch("http://localhost:8989/events/", {
@@ -32,7 +34,6 @@ const Events = () => {
 
   const deleteEvent = async (eventId) => {
     console.log(eventId);
-
     const result = await axios
       .delete(`http://localhost:8989/events/${eventId}`)
       .then((res) => {

@@ -22,6 +22,23 @@ const Users = () => {
     reset({});
   };
 
+  const deleteUser = async (userId) => {
+    console.log(userId);
+    const result = await axios
+      .delete(`http://localhost:8989/events/${userId}`)
+      .then((res) => {
+        if (res.status === 200) {
+          const newItems = items.filter((oldItem) => oldItem.id !== userId);
+          setItems(newItems);
+        } else {
+          console.log(res.status);
+        }
+      })
+
+      .catch((res) => console.log(res));
+    console.log(result);
+  };
+
   return (
     <div>
       <div>
@@ -165,6 +182,8 @@ const Users = () => {
             <th scope="col">Email</th>
             <th scope="col">Branch</th>
             <th scope="col">Role</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -178,6 +197,17 @@ const Users = () => {
               <td>{userDetail.email}</td>
               <td>{userDetail.branch}</td>
               <td>{userDetail.role}</td>
+              <td>
+                <button className="btn btn-outline-primary">Edit</button>
+              </td>
+              <td>
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={() => deleteUser(userDetail.id)}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
