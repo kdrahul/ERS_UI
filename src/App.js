@@ -3,7 +3,6 @@ import Home from "./templates/home";
 import LoginSignup from "./templates/login_signup";
 import Navbar from "./components/navbar";
 import EventDetails from "./components/details";
-import Survey from "./templates/survey";
 import Admin from "./templates/admin";
 
 const App = () => {
@@ -14,7 +13,6 @@ const App = () => {
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
         <Route path="/login_signup" exact component={LoginSignup} />
-        <Route path="/survey" exact component={Survey} />
         <Route path="/admin" exact component={Admin} />
         <Route path="/events/:id" component={EventDetails} />
       </Switch>

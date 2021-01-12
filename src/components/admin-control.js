@@ -1,6 +1,6 @@
 import React from "react";
 import Users from "../components/admin_components/users";
-import Survey from "../components/admin_components/survey";
+import Response from "../components/admin_components/response";
 import Events from "../components/admin_components/events";
 
 const Landing = () => {
@@ -73,7 +73,7 @@ const Landing = () => {
               role="tabpanel"
               aria-labelledby="surveys-tab"
             >
-              <Survey />
+              <Response />
             </div>
           </div>
         </div>
