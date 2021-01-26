@@ -45,7 +45,7 @@ const EventDetails = ({match}) => {
                     Register
         </Link>
                 <Link className="btn btn-outline-danger"
-                    to="/event/{item.id}/survey">
+                    to={`/event/${match.params.id}/survey`}>
                     Take up a Survey
                 </Link>
             </div>
