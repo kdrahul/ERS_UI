@@ -134,7 +134,7 @@ const Questions = () => {
                         <td>
                             <button
                                 className="btn btn-outline-danger"
-                                onClick={() => deleteQuestion()}
+                                onClick={() => deleteQuestion(quesDetails.id)}
                             >
                                 Delete
                 </button>
